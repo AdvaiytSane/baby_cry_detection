@@ -37,7 +37,7 @@ def main():
 
     # Read signal
     file_name = 'signal_9s.wav'       # only one file in the folder
-    file_reader = Reader(os.path.join(load_path_data, file_name))
+    file_reader, _ = Reader(os.path.join(load_path_data, file_name))
     play_list = file_reader.read_audio_file()
 
     ####################################################################################################################

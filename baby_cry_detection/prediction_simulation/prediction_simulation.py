@@ -6,6 +6,7 @@ import os
 import pickle
 import timeit
 import warnings
+import numpy as np
 
 from baby_cry_detection.rpi_methods import Reader
 from baby_cry_detection.rpi_methods.feature_engineer import FeatureEngineer
@@ -19,10 +20,10 @@ def main():
     parser.add_argument('--load_path_data',
                         default=os.path.dirname(os.path.abspath(__file__)))
     parser.add_argument('--load_path_model',
-                        default='{}/../../../output/model/'.format(os.path.dirname(os.path.abspath(__file__))))
+                        default='{}/../../output/model/'.format(os.path.dirname(os.path.abspath(__file__))))
     parser.add_argument('--save_path',
-                        default='{}/../../../output/prediction/'.format(os.path.dirname(os.path.abspath(__file__))))
-    parser.add_argument('--file_name', default='V_2017-04-01+08_04_36=0_13.mp3')
+                        default='{}/../../output/prediction/'.format(os.path.dirname(os.path.abspath(__file__))))
+    parser.add_argument('--file_name', default='V_2017_test.mp3')
     parser.add_argument('--log_path',
                         default='{}/../../'.format(os.path.dirname(os.path.abspath(__file__))))
 
@@ -49,7 +50,7 @@ def main():
     # Read signal (first 5 sec)
     file_reader = Reader(os.path.join(load_path_data, file_name))
 
-    play_list = file_reader.read_audio_file()
+    play_list, _ = file_reader.read_audio_file()
 
     stop = timeit.default_timer()
     logging.info('Time taken for reading file: {0}'.format(stop - start))
@@ -104,7 +105,7 @@ def main():
     logging.info('Saving prediction...')
 
     # Save prediction result
-    with open(os.path.join(save_path, 'prediction.txt'), 'wb') as text_file:
+    with open(os.path.join(save_path, 'prediction.txt'), 'w') as text_file:
         text_file.write("{}".format(majority_vote))
 
     logging.info('Saved! {}'.format(os.path.join(save_path, 'prediction.txt')))

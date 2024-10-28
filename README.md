@@ -62,12 +62,17 @@ From your command line go to baby_cry_detection folder and run the following pyt
 This step allows you to train the model. Please note that the model itself is not provided.
 
 ```
+# NOTE: You may have to set the folder path for python to find the files here.
+export PYTHONPATH=/Users/hsane/aduprojects/baby_cry_detection/
+```
+
+```
 # Create and save trainset
-python baby_cry_detection/pc_main/train_set.py
+python3 baby_cry_detection/pc_main/train_set.py
 ```
 ```
 # Train and save model
-python baby_cry_detection/pc_main/train_model.py
+python3 baby_cry_detection/pc_main/train_model.py
 ```
 
 Script `train_set.py` saves the trainset in folder _dataset_ and, script `train_model.py` saves the model in folder
