@@ -8,6 +8,8 @@ This is done by implementing a machine learning algorithm on a Raspberry Pi. The
 and to deploy it on Raspberry Pi, which is used to record a signal and use the model to predict if it is a baby cry or
 not. In the former case a lullaby is played, in the latter the process (recording and predicting steps) starts again.
 
+Paper: https://docs.google.com/document/d/1UzBSqRFGOByZIPfLHuQ1xGe37pOiwJAE/edit?usp=sharing&ouid=113356586481401199775&rtpof=true&sd=true
+
 ### Code organisation
 
 The code is organised as follows.
